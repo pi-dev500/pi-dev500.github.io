@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+	<title>Eudamed</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="generator" content="Geany 1.36">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+	<script>
+			
+  $( function() {
+    $( "#expicertificat" ).datepicker();
+    $( "#dderniereextraction" ).datepicker();
+    $( "#tabs" ).tabs();
+    $( "#speed" ).selectmenu();
+ 
+    $( "#files" ).selectmenu();
+ 
+    $( "#number" )
+      .selectmenu()
+      .selectmenu( "menuWidget" )
+        .addClass( "overflow" );
+ 
+    $( "#salutation" ).selectmenu();
+  }
+ );
+  </script>
+	<link rel="icon" href="index.png">
+</head>
+
+<body>
+<div id="udilist">En attente de liste</div>  
+<button onclick="getBaseData()">Montrer les données enregistrées dans la base de données.-></button>
+<button onclick="save_data()">Sauvegarder les données-></button>
+  <div class="form-example">
+    <label for="udidiboite">UDI-DI de la boîte </label>
+    <input type="text" name="udidiboite" id="udidiboite" >
+  </div>
+  <div class="form-example">
+    <label for="codearticleuddi">Code article principal représentant l'UD-DI </label>
+    <input type="text" name="codearticleuddi" id="codearticleuddi" >
+  </div>
+<form action="" method="get" class="form-example">
+
+  <div id="tabs">
+  <ul>
+    <li><a href="#t-1">Données générales</a></li>
+    <li><a href="#t-2">UDI</a></li>
+    <li><a href="#t-3">Infos suplémentaires</a></li>
+    <li><a href="#t-4">Statut</a></li>
+  </ul>
+
+Veuillez entrer les données dans les cases suivantes:	
+
+<div id="t-1">
+  <div class="form-example">
+    <label for="typecertificat">2.2) Type de certificat: </label>
+    <input type="text" name="typecertificat" id="typecertificat" >
+  </div>
+
+  <div class="form-example">
+    <label for="numcertificat">2.2) Numéro de certificat: </label>
+    <input type="number" name="numcertificat" id="numcertificat" >
+  </div>
+  
+  <div class="form-example">
+    <label for="type_cert">2.2)Date d'expiration du certificat: </label>
+    <p><input type="text" name="expicertificat" id="expicertificat"></p>
+  </div>
+  
+  
+    <div class="form-example">
+    <label for="nomnumorganismenotifie">2.2) Nom et/ou numéro d'identification organisme notifié </label>
+    <input type="text" name="nomnumorganismenotifie" id="nomnumorganismenotifie" >
+  </div>
+  
+  <div class="form-example">
+    <label for="lieninfoscertificat">2.2) Lien vers les informations du certificat </label>
+    <input type="text" name="lieninfoscertificat" id="lieninfoscertificat" >
+  </div>
+  
+  <div class="form-example">
+    <label for="etatmisesurmarche">2.3) Etat membre mise sur le marché  </label>
+    <input type="text" name="etatmisesurmarche" id="etatmisesurmarche" >
+  </div>
+  
+  <div class="form-example">
+    <label for="classeetatsdisposition">2.4) Classe IIa, IIb ou III : États membres mise à disposition </label>
+    <input type="text" name="classeetatsdisposition" id="classeetatsdisposition" >
+  </div>
+  
+  <div class="form-example">
+    <label for="classedm">2.5) Classe DM </label>
+    <p><select name="classedm" id="classedm">
+      <option selected="selected">Autres</option>
+      <option>COMPLÉMENTS ALIMENTAIRES</option>
+      <option>COSMÉTIQUES</option>
+      <option>D.M. CLASSE 1</option>
+      <option>D.M. CLASSE 2A</option>
+      <option>D.M. CLASSE 2B</option>
+      <option>D.M. CLASSE 3</option>
+      <option>MÉDICAMENT</option>
+      <option>PRODUIT BIOCIDE</option>
+    </select></p>
+  </div>
+  
+  <div class="form-example">
+    <label for="usageunique">2.6) Dispositif à usage unique retraité : (OUI/NON) </label>
+    <p><select name="usageunique" id="usageunique">
+      <option selected="selected">Unknown</option>
+      <option>OUI</option>
+      <option>NON</option>
+    </select></p>
+  </div>
+  
+  <div class="form-example">
+    <label for="presencemedicament">2.7) Présence de substance considérée comme médicament? (OUI/NON) </label>
+    <p><select name="presencemedicament" id="presencemedicament">
+      <option selected="selected">Unknown</option>
+      <option>OUI</option>
+      <option>NON</option>
+    </select></p>
+  </div>
+  
+  <div class="form-example">
+    <label for="nomsubstance">2.7) Nom de cette substance </label>
+    <input type="text" name="nomsubstance" id="nomsubstance" >
+  </div>
+  
+  <div class="form-example">
+    <label for="présencemedicamentsangouplasmahumain">2.8) Présence substance considérée comme médicament dérivé du sang ou du plasma d'origine humaine? (OUI/NON) </label>
+    <p><select name="" id="presencemedicamentsangouplasmahumain">
+      <option selected="selected">Unknown</option>
+      <option>OUI</option>
+      <option>NON</option>
+    </select></p>
+    <input type="text" name="presencemedicamentsangouplasmahumain" id="presencemedicamentsangouplasmahumain" >
+  </div>
+  
+  <div class="form-example">
+    <label for="nomsubstance2">2.8) Nom de cette substance </label>
+    <input type="text" name="nomsubstance2" id="nomsubstance2" >
+  </div>
+  
+  <div class="form-example">
+    <label for="presencetissushumains">2.9) Présence cellules/tissus d'origine humaine, ou de leurs dérivés? (OUI/NON) </label>
+    <p><select name="presencetissushumains" id="presencetissushumains">
+      <option selected="selected">Unknown</option>
+      <option>OUI</option>
+      <option>NON</option>
+    </select></p>
+  </div>
+  
+  <div class="form-example">
+    <label for="presencetissusanimaux">2.10) Présence cellules/ tissus d'origine animale, ou de leurs dérivés c (OUI/NON) </label>
+    <p><select name="presencetissusanimaux" id="presencetissusanimaux">
+      <option selected="selected">Unknown</option>
+      <option>OUI</option>
+      <option>NON</option>
+    </select></p>
+  </div>
+  
+  <div class="form-example">
+    <label for="numidinvestigationscliniques">2.11) (A) Numéro identification unique des investigations cliniques ou lien vers leurs enregistrements </label>
+    <input type="text" name="numidinvestigationscliniques" id="numidinvestigationscliniques" >
+  </div>
+  
+  <div class="form-example">
+    <label for="destinationnonmedicale">2.12) Annexe XVI : Destination non médicale c (OUI/NON) </label>
+    <p><select name="destinationnonmedicale" id="destinationnonmedicale">
+      <option selected="selected">Unknown</option>
+      <option>OUI</option>
+      <option>NON</option>
+    </select></p>
+  </div>
+  
+  <div class="form-example">
+    <label for="coordonneessoustraitant">2.13) Coordonnées sous-traitant conception/fabrication </label>
+    <input type="text" name="coordonneessoustraitant" id="coordonneessoustraitant" >
+  </div>
+  
+  <div class="form-example">
+    <label for="resumesecuriteetperformancescliniques">2.14) DM classe III ou DM implantables : résumé des caractéristiques de sécurité et des performances cliniques</label>
+    <input type="text" name="resumesecuriteetperformancescliniques" id="resumesecuriteetperformancescliniques" >
+  </div>
+  
+  <div class="form-example">
+    <label for="statutdm">2.15) Statut du DM (sur le marché, arrêté, rappelé, mesures correctives de sécurité) </label>
+    <input type="text" name="statutdm" id="statutdm" >
+  </div>
+</div>
+
+<div id="t-2">
+  <div class="form-example">
+    <label for="qttparunitconditionnement">1) Quantité par unité de conditionnement </label>
+    <input type="text" name="qttparunitconditionnement" id="qttparunitconditionnement" >
+  </div>
+  
+  <div class="form-example">
+    <label for="iuddibase">2) IUD-DI de base  </label>
+    <input type="text" name="iuddibase" id="iuddibase" >
+  </div>
+  
+  <div class="form-example">
+    <label for="udidisupplementaires">2) UDI-DI supplémentaires (GTIN) </label>
+    <input type="text" name="udidisupplementaires" id="udidisupplementaires" >
+  </div>
+  
+  <div class="form-example">
+    <label for="moyencontroledm">3) Manière de contrôler la production du DM (date d'expiration ou date de fabrication, numéro de lot, numéro de série) </label>
+    <input type="text" name="moyencontroledm" id="moyencontroledm" >
+  </div>
+  
+  <div class="form-example">
+    <label for="idutilisationudiidpatient">4) (A) ID de l'unité d'utilisation UDI-ID pour un patient </label>
+    <input type="text" name="idutilisationudiidpatient" id="idutilisationudiidpatient" >
+  </div>
+</div>
+
+<div id="t-3">
+  <div class="form-example">
+    <label for="nomadressefabriquant ">5) Nom et adresse du fabricant  </label>
+    <input type="text" name="nomadressefabriquant " id="nomadressefabriquant" >
+  </div>
+  
+  <div class="form-example">
+    <label for="numenregistrementunique">6) Numéro d'enregistrement unique (SRN)  </label>
+    <input type="text" name="numenregistrementunique" id="numenregistrementunique" >
+  </div>
+  
+  <div class="form-example">
+    <label for="nomadressemandataire">7) (A) Nom et adresse du mandataire  </label>
+    <input type="text" name="nomadressemandataire" id="nomadressemandataire" >
+  </div>
+  
+  <div class="form-example">
+    <label for="codecnd">8) Code CND </label>
+    <input type="text" name="codecnd" id="codecnd" >
+  </div>
+  
+  <div class="form-example">
+    <label for="infosupclassedm">9) Classe DM </label>
+    <p><select name="infosupclassedm" id="infosupclassedm">
+      <option selected="selected">Autres</option>
+      <option>COMPLÉMENTS ALIMENTAIRES</option>
+      <option>COSMÉTIQUES</option>
+      <option>D.M. CLASSE 1</option>
+      <option>D.M. CLASSE 2A</option>
+      <option>D.M. CLASSE 2B</option>
+      <option>D.M. CLASSE 3</option>
+      <option>MÉDICAMENT</option>
+      <option>PRODUIT BIOCIDE</option>
+    </select></p>
+  </div>
+  
+  <div class="form-example">
+    <label for="nomcommercial">10) (A) Nom ou la dénomination commerciale  </label>
+    <input type="text" name="nomcommercial" id="nomcommercial" >
+  </div>
+  
+  <div class="form-example">
+    <label for="referencedispositif">11) (A) Modèle du dispositif, référence ou numéro dans le catalogue </label>
+    <input type="text" name="referencedispositif" id="referencedispositif" >
+  </div>
+  
+  <div class="form-example">
+    <label for="dimensionscliniques">12) (A) Dimensions cliniques (longueur, calibre, diamètre)  </label>
+    <input type="text" name="dimensionscliniques" id="dimensionscliniques" >
+  </div>
+  
+  <div class="form-example">
+    <label for="descriptionproduit">13) (F) Description supplémentaire du produit  </label>
+    <input type="text" name="descriptionproduit" id="descriptionproduit" >
+  </div>
+  
+  <div class="form-example">
+    <label for="conditionsstockagemanipulation">14) (A) Conditions de stockage et/ou de manipulation  </label>
+    <input type="text" name="conditionsstockagemanipulation" id="conditionsstockagemanipulation" >
+  </div>
+  
+  <div class="form-example">
+    <label for="autresdenominations">15) (A) Autres dénominations commerciales du DM </label>
+    <input type="text" name="autresdenominations" id="autresdenominations" >
+  </div>
+  
+  <div class="form-example">
+    <label for="usageunique">16) Etiqueté comme un dispositif à usage unique? (OUI/NON) </label>
+    <p><select name="usageunique" id="usageunique">
+      <option selected="selected">Unknown</option>
+      <option>OUI</option>
+      <option>NON</option>
+    </select></p>
+  </div>
+  
+  <div class="form-example">
+    <label for="numMaxReutilisation">17) (A) Nombre maximal de réutilisations </label>
+    <input type="text" name="numMaxReutilisation" id="numMaxReutilisation" >
+  </div>
+  
+  <div class="form-example">
+    <label for="etiquetesterile">18) DM étiqueté comme stérile? (OUI/NON) </label>
+    <p><select name="etiquetesterile" id="etiquetesterile">
+      <option selected="selected">Unknown</option>
+      <option>OUI</option>
+      <option>NON</option>
+    </select></p>
+  </div>
+  
+  <div class="form-example">
+    <label for="sterilisationavantusage">19) Stérilisation nécessaire avant utilisation? (OUI/NON) </label>
+    <p><select name="sterilisationavantusage" id="sterilisationavantusage">
+      <option selected="selected">Unknown</option>
+      <option>OUI</option>
+      <option>NON</option>
+    </select></p>
+  </div>
+  
+  <div class="form-example">
+    <label for="contientlatex">20) DM contenant du latex? (OUI/NON) </label>
+    <p><select name="contientlatex" id="contientlatex">
+      <option selected="selected">Unknown</option>
+      <option>OUI</option>
+      <option>NON</option>
+    </select></p>
+  </div>
+  
+  <div class="form-example">
+    <label for="infoscmr">21) (A) Informations CMR et perturbateurs endocriniens (cf annexe I, section 10.4.5) </label>
+    <input type="text" name="infoscmr" id="infoscmr" >
+  </div>
+  
+  <div class="form-example">
+    <label for="urlinfosup">22) (F) URL informations supplémentaires </label>
+    <input type="text" name="urlinfosup" id="urlinfosup" >
+  </div>
+  
+  <div class="form-example">
+    <label for="misesengardes">23) (A) Mises en garde ou contre-indications importantes </label>
+    <input type="text" name="misesengardes" id="misesengardes" >
+  </div>
+</div>
+
+<div id="t-4">
+  <div class="form-example">
+    <label for="statutdm2">24) Statut du DM (sur le marché, arrêté, rappelé, mesures correctives de sécurité) </label>
+    <input type="text" name="statutdm2" id="statutdm2" >
+  </div>
+  
+  <div class="form-example">
+    <label for="attenteokare">En attente d’OK ARE </label>
+    <input type="text" name="attenteokare" id="attenteokare" >
+  </div>
+  
+  <div class="form-example">
+    <label for="derniereextraction">Date de dernière extraction pour publication </label>
+    <p><input type="text" name="derniereextraction" id="derniereextraction"></p>
+  </div>
+  
+  <div class="form-example">
+    <label for="doitetrepublie">Doit être publié/republié </label>
+    <input type="text" name="doitetrepublie" id="doitetrepublie" >
+  </div>
+</div>
+</div>
+
+
+
+</body>
+<script type="text/javascript">
+
+	 
+
+function save_data() {
+$.ajax({
+
+        method: "POST",
+
+        url: "save_data.php",
+
+        data: {
+
+			udidiboite: document.getElementById("udidiboite").value,
+			codearticleuddi: document.getElementById("codearticleuddi").value,
+			typecertificat: document.getElementById("typecertificat").value,
+			numcertificat: document.getElementById("numcertificat").value,
+			expicertificat: document.getElementById("expicertificat").value,
+			nomnumorganismenotifie: document.getElementById("nomnumorganismenotifie").value,
+			lieninfoscertificat: document.getElementById("lieninfoscertificat").value,
+			etatmisesurmarche: document.getElementById("etatmisesurmarche").value,
+			classeetatsdisposition: document.getElementById("classeetatsdisposition").value,
+			classedm: document.getElementById("classedm").value,
+			usageunique: document.getElementById("usageunique").value,
+			presencemedicament: document.getElementById("presencemedicament").value,
+			nomsubstance: document.getElementById("nomsubstance").value,
+			presencemedicamentsangouplasmahumain: document.getElementById("presencemedicamentsangouplasmahumain").value,
+			nomsubstance2: document.getElementById("nomsubstance2").value,
+			presencetissushumains: document.getElementById("presencetissushumains").value,
+			presencetissusanimaux: document.getElementById("presencetissusanimaux").value,
+			numidinvestigationscliniques: document.getElementById("numidinvestigationscliniques").value,
+			destinationnonmedicale: document.getElementById("destinationnonmedicale").value,
+			coordonneessoustraitant: document.getElementById("coordonneessoustraitant").value,
+			resumesecuriteetperformancescliniques: document.getElementById("resumesecuriteetperformancescliniques").value,
+			statutdm: document.getElementById("statutdm").value,
+			qttparunitconditionnement: document.getElementById("qttparunitconditionnement").value,
+			iuddibase: document.getElementById("iuddibase").value,
+			udidisupplementaires: document.getElementById("udidisupplementaires").value,
+			moyencontroledm: document.getElementById("moyencontroledm").value,
+			idutilisationudiidpatient: document.getElementById("idutilisationudiidpatient").value,
+			nomadressefabriquant : document.getElementById("nomadressefabriquant").value,
+			numenregistrementunique: document.getElementById("numenregistrementunique").value,
+			nomadressemandataire : document.getElementById("nomadressemandataire").value,
+			codecnd: document.getElementById("codecnd").value,
+			infosupclassedm: document.getElementById("infosupclassedm").value,
+			nomcommercial: document.getElementById("nomcommercial").value,
+			referencedispositif: document.getElementById("referencedispositif").value,
+			dimensionscliniques: document.getElementById("dimensionscliniques").value,
+			descriptionproduit: document.getElementById("descriptionproduit").value,
+			conditionsstockagemanipulation: document.getElementById("conditionsstockagemanipulation").value,
+			autresdenominations: document.getElementById("autresdenominations").value,
+			usageunique: document.getElementById("usageunique").value,
+			numMaxReutilisation: document.getElementById("numMaxReutilisation").value,
+			etiquetesterile: document.getElementById("etiquetesterile").value,
+			sterilisationavantusage: document.getElementById("sterilisationavantusage").value,
+			contientlatex: document.getElementById("contientlatex").value,
+			infoscmr: document.getElementById("infoscmr").value,
+			urlinfosup: document.getElementById("urlinfosup").value,
+			misesengardes: document.getElementById("misesengardes").value,
+			statutdm2: document.getElementById("statutdm2").value,
+			attenteokare: document.getElementById("attenteokare").value,
+			derniereextraction: document.getElementById("derniereextraction").value,
+			doitetrepublie: document.getElementById("doitetrepublie").value
+
+
+        },
+
+        async: false,
+
+        success: function(result){
+
+          if (result != "")
+
+              alert('save_data - log:' + result);     
+
+          }                                                                                                            
+
+    });
+  }
+
+function getBaseData() {
+
+        $.ajax({
+
+          method: "POST",
+
+          url: "read_data.php",
+
+          async: false,
+
+          success: function(result){
+
+          if (result != "") {
+            var udidata = JSON.parse(result);   
+            var udihtml = "<table>";
+            for (var i = 0; i < udidata.length; i++) {
+               udihtml += "<tr><td>" + udidata[i].udidiboite + "</td><td>" + udidata[i].codearticleuddi + "</td></tr>";
+           }
+
+           udihtml += "</table>";
+
+           $("#udilist").ready( function () {
+             $('#myTable').DataTable();
+           } );//.html(udihtml);
+          }
+
+        }});        
+
+      }
+
+ 
+
+ 
+
+// Show log data for the game
+
+       function show_data() {
+
+
+
+         }
+
+</script>
+			

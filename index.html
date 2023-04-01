@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html>
 	<head>
 		<meta charset="utf-8">
 		<title>Pi-dev500 Webpage - Home</title>
@@ -10,47 +10,11 @@
 			var language = window.navigator.userLanguage || window.navigator.language;
 
 			// Rediriger en fonction de la langue
-			if (language === 'fr') {
+			if (language === 'fr' || language === 'fr-FR') {
 				window.location.href = 'FR/';
 			} else {
 				window.location.href = 'EN/';
 			}
 		</script>
 	</head>
-	<body>
-		<div class="navbar">
-			<img class="img" src="images/icon.png" alt="Pi-dev500" height="30"/>
-			<div class="navbar_buttons_container">
-				<a href="." style="color: #FFFFFF">Home</a>
-				<a href=".">Projects</a>
-				<a href=".">Documentation</a>
-				<select onchange="redirectToPage(this.value)">
-					<option value="EN/" data-label="English">EN</option>
-					<option value="FR/" data-label="Français">FR</option>
-				</select>
-			</div>
-		</div>				
-		<div class="main">
-			<img class="center_image" src="images/Pi-dev500.png" />
-			<h3>
-			<article class="markdown-body entry-content container-lg f5" itemprop="text">
-				<ul dir="auto">
-					<li><g-emoji class="g-emoji" alias="wave" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png">👋</g-emoji> Hi, I’m @pi-dev500</li>
-					<li><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> I’m interested in shell script,python and html</li>
-					<li><g-emoji class="g-emoji" alias="seedling" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f331.png">🌱</g-emoji> I’m currently learning html</li>
-					<li><g-emoji class="g-emoji" alias="revolving_hearts" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f49e.png">💞️</g-emoji> I’m looking to collaborate on pi-apps</li>
-					<li><g-emoji class="g-emoji" alias="mailbox" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4eb.png">📫</g-emoji> How to reach me: just open an issue at <a href="https://github.com/pi-dev500/pi-dev500">https://github.com/pi-dev500/pi-dev500</a></li>
-				</ul>
-			</article>
-			</h3>
-			<img src="https://github-readme-stats.vercel.app/api?username=pi-dev500&show_icons=true&theme=radical" /><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=pi-dev500&theme=radical&exclude_repo=Windows-10-cinnamon-theme,pi-apps&layout=compact" align="top"/>
-		</div>
-		<script>
-			function redirectToPage(url) {
-				if (url !== '') {
-					window.location.href = url;
-				}
-			}
-		</script>
-	</body>
 </html>

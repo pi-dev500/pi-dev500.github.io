@@ -1,0 +1,36 @@
+.img {
+  border-radius: 50%;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  background-color: #2d3e50;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+  height: 30px;
+  padding: 10px;
+  justify-content: space-between;
+}
+.navbar div {
+  color: #2d3e50
+}
+.navbar a {
+  color: #6FBEF3;
+  text-decoration: none;
+  margin-right: 0px;
+  margin-left: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+.center_image {
+  display: block;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+}

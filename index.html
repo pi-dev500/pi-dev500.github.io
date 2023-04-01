@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>Pi-dev500 Webpage - Home</title>
@@ -13,6 +13,10 @@
 				<a href="." style="color: #FFFFFF">Home</a>
 				<a href=".">Projects</a>
 				<a href=".">Documentation</a>
+				<select onchange="redirectToPage(this.value)">
+					<option value="EN/" data-label="English">EN</option>
+					<option value="FR/" data-label="Français">FR</option>
+				</select>
 			</div>
 		</div>				
 		<div class="main">
@@ -30,5 +34,12 @@
 			</h3>
 			<img src="https://github-readme-stats.vercel.app/api?username=pi-dev500&show_icons=true&theme=radical" /><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=pi-dev500&theme=radical&exclude_repo=Windows-10-cinnamon-theme&layout=compact" align="top"/>
 		</div>
+		<script>
+			function redirectToPage(url) {
+				if (url !== '') {
+					window.location.href = url;
+				}
+			}
+		</script>
 	</body>
 </html>

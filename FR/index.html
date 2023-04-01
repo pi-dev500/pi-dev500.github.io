@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Page web Pi-dev500 - Accueil</title>
+		<link rel="stylesheet" href="../css/style.css">
+		<link class="img" rel="icon" href="../images/icon.png">
+	</head>
+	<body>
+		<div class="navbar">
+			<img class="img" src="../images/icon.png" alt="Pi-dev500" height="30"/>
+			<div class="navbar_buttons_container">
+				<a href="." style="color: #FFFFFF">Accueil</a>
+				<a href=".">Projets</a>
+				<a href=".">Documentation</a>
+				<select onchange="redirectToPage(this.value)">
+					<option value="#" data-label="Français">FR</option>
+					<option value="../EN/" data-label="English">EN</option>
+					
+				</select>
+			</div>
+		</div>				
+		<div class="main">
+			<img class="center_image" src="../images/Pi-dev500.png" alt="Pi-dev500"/>
+			<h3>
+			<article class="markdown-body entry-content container-lg f5" itemprop="text">
+				<ul dir="auto">
+					<li><g-emoji class="g-emoji" alias="wave" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png">👋</g-emoji> Bonjour, je suis @pi-dev500</li>
+					<li><g-emoji class="g-emoji" alias="eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png">👀</g-emoji> Je m'intéresse aux scripts shell, à Python et à HTML, et plus globalement à tout ce qui n'a pas besoin d'être compilé.</li>
+					<li><g-emoji class="g-emoji" alias="seedling" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f331.png">🌱</g-emoji> J'apprends actuellement l'HTML</li>
+					<li><g-emoji class="g-emoji" alias="revolving_hearts" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f49e.png">💞️</g-emoji> J'essaie d'aider de temps à autre les développeurs du Pi-apps</li>
+					<li><g-emoji class="g-emoji" alias="mailbox" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4eb.png">📫</g-emoji> Comment me contacter : il suffit d'ouvrir une "issue" sur <a href="https://github.com/pi-dev500/pi-dev500">https://github.com/pi-dev500/pi-dev500</a></li>
+				</ul>
+			</article>
+			</h3>
+			<img src="https://github-readme-stats.vercel.app/api?username=pi-dev500&show_icons=true&theme=radical" /><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=pi-dev500&theme=radical&exclude_repo=Windows-10-cinnamon-theme&layout=compact" align="top"/>
+		</div>
+		<script>
+			function redirectToPage(url) {
+				if (url !== '') {
+					window.location.href = url;
+				}
+			}
+		</script>
+	</body>
+</html>

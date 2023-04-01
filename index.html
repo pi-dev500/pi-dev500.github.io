@@ -5,6 +5,17 @@
 		<title>Pi-dev500 Webpage - Home</title>
 		<link rel="stylesheet" href="css/style.css">
 		<link class="img" rel="icon" href="images/icon.png">
+		<script>
+			// Récupérer la langue du navigateur
+			var language = window.navigator.userLanguage || window.navigator.language;
+
+			// Rediriger en fonction de la langue
+			if (language === 'fr') {
+				window.location.href = 'FR/';
+			} else {
+				window.location.href = 'EN/';
+			}
+		</script>
 	</head>
 	<body>
 		<div class="navbar">

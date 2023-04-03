@@ -1,16 +1,58 @@
-form.form-example {
-    display: table;
+/* Reset styles */
+.tabs {
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
-div.form-example {
-    display: table-row;
+.tab {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  position: relative;
+  z-index: 1;
 }
 
-label, input {
-    display: table-cell;
-    margin-bottom: 20px;
+.tab input[type="radio"] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
 }
 
-label {
-    padding-right: 20px;
+.tab label {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  color: #777;
+  background-color: #f1f1f1;
+  border-radius: 5px 5px 0 0;
+}
+
+.tab input[type="radio"]:checked + label {
+  color: #fff;
+  background-color: #28a745;
+}
+
+.tab-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  z-index: 1;
+}
+
+.tab input[type="radio"]:checked ~ .tab-content {
+  display: block;
 }

@@ -6,23 +6,28 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <form class="form-exemple">
-    <div id="tabs">
-      <ul>
-        <li><a href="#t-1">Home</a></li>
-        <li><a href="#t-2">Projects</a></li>
-        <li><a href="#t-3">Documentation</a></li>
-      </ul>
-      <div id="t-1">
-        test
-      </div>
-      <div id="t-2">
-        test2
-      </div>
-      <div id="t-3">
-        test3
-      </div>
+  <div class="tabs">
+  <div class="tab">
+    <input type="radio" id="tab1" name="tabs" checked>
+    <label for="tab1">Tab 1</label>
+    <div class="tab-content">
+      <p>Content for Tab 1 goes here.</p>
     </div>
-    </form>
+  </div>
+  <div class="tab">
+    <input type="radio" id="tab2" name="tabs">
+    <label for="tab2">Tab 2</label>
+    <div class="tab-content">
+      <p>Content for Tab 2 goes here.</p>
+    </div>
+  </div>
+  <div class="tab">
+    <input type="radio" id="tab3" name="tabs">
+    <label for="tab3">Tab 3</label>
+    <div class="tab-content">
+      <p>Content for Tab 3 goes here.</p>
+    </div>
+  </div>
+  </div>
   </body>
 </html>

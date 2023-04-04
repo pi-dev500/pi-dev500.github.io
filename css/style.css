@@ -43,3 +43,16 @@
   margin-right: auto;
   width: 35%;
 }
+.Box {
+    background-color: #A7D1FF;
+    border-color: var(--color-border-default);
+    border-radius: var(--primer-borderRadius-medium, 8px);
+    border-style: solid;
+    border-width: var(--primer-borderWidth-thin, 2px);
+}
+.dark_body {
+	background-color: #193859;
+}
+article {
+	margin-right: 30px
+}

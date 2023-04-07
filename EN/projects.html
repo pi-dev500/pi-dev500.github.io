@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Pi-dev500's Web Page - Projects</title>
+		<link rel="stylesheet" href="../css/style.css">
+		<link class="img" rel="icon" href="../images/icon.png">
+	</head>
+	<body>
+		<div class="navbar">
+			<img class="img" src="../images/icon.png" alt="Pi-dev500" height="30"/>
+			<div class="navbar_buttons_container">
+				<a href=".">Home</a>
+				<a href="#" style="color: #FFFFFF">Projects</a>
+				<a href=".">Documentation</a>
+				<select onchange="redirectToPage(this.value)">
+					<option value="#">EN</option>
+					<option value="../FR/projects.html" data-label="Français">FR</option>
+				</select>
+		</div>
+	</div>				
+	<div class="main">
+		<div class="Box" style="background-color: white; margin-top:20px">
+			<a href="https://github.com/pi-dev500/TkTerm"><img src="https://github-readme-stats.vercel.app/api/pin/?username=pi-dev500&repo=TkTerm"></a>
+			<div style="margin-left: 20px">
+				<h2>A simple and lightweight terminal for python3-tkinter</h2>
+				<p style="font-size: 20px">This is a convenient solution for live-displaying bash script output in a tkinter window or frame.
+				This solution is simple and lightweight, as it is based on xterm.
+				In addition, a mechanism of escape sequences and a file located in /tmp/TkTermrs{id} allows it to dynamically and quickly adapt to the frame in which it is located.</p>
+			</div>
+		</div>
+		<div class="Box" style="background-color: white; margin-top:20px">
+			<a href="https://github.com/pi-dev500/pi-apps_touchscreens"><img src="https://github-readme-stats.vercel.app/api/pin/?username=pi-dev500&repo=pi-apps_touchscreens"></a>
+			<div style="margin-left: 20px">
+				<h2>A new interface for <a href="https://github.com/botspot/pi-apps">pi-apps</a></h2>
+				<p style="font-size: 20px">I've been working on this project for two years - a more streamlined interface for pi-apps that would be useful for touchscreen users.
+				In addition, this interface would allow for a 50 to 60% performance gain due to python's superiority over bash for quickly generating and manipulating data.</p>
+			</div>
+		</div>
+		<div class="Box" style="background-color: white; margin-top:20px">
+			<div style="margin-left: 20px">
+				<h2>(Background) A Minecraft Java Edition Launcher in Python</h2>
+				<p style="font-size: 20px">After several tests and prompts from ChatGPT and Bing, I realized that the Mojang API operates on recursively organized JSON files (natively parsable with Python), with the location of the data indicated in the base files. In addition, assets are organized by hash directories.</p>
+				<p><a href="https://launchermeta.mojang.com/mc/game/version_manifest.json">The first file in the Mojang API to explore</a>List the different versions, their type ('old-alpha', 'alpha', 'beta', 'snapshot', or 'release'), and the location of their metadata file indicating dependencies and how to run them.</p>
+                <h5>My current code that lists the files to download and their location:</h5>
+                <img src="../images/code_mclauncher.png" , style="width: 700 px"/>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			function redirectToPage(url) {
+				if (url !== '') {
+					window.location.href = url;
+				}
+			}
+		</script>
+	</body>
+</html>
+
+

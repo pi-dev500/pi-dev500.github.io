@@ -4,7 +4,6 @@
 .navbar {
   display: flex;
   align-items: center;
-  height: 80px;
   background-color: #2d3e50;
   color: #fff;
   position: fixed;
@@ -38,7 +37,6 @@
 }
 .center_image {
   display: block;
-  margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
   width: 35%;
@@ -56,3 +54,8 @@
 article {
 	margin-right: 30px
 }
+.main {
+	margin-top: 60px;
+}
+
+
